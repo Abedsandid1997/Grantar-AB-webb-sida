@@ -39,6 +39,18 @@ export default async function Page() {
         Lediga jobb inom lager
       </h1>
 
+      {/* Profilbild i mitten */}
+      <div className="flex flex-col items-center mb-10">
+        <Image
+          src="https://media.licdn.com/dms/image/v2/C4E03AQFqHCkjG1vONQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1584550181168?e=2147483647&v=beta&t=iGDbsY3Ayoe-LiZfXXPaU2dz35ln3CpG3TKR-65VfBs"
+          alt="Taleb Haikal"
+          width={120}
+          height={120}
+          className="rounded-full shadow-lg border-4 border-white"
+        />
+        <h2 className="mt-4 text-xl font-semibold">Taleb Haikal</h2>
+      </div>
+
       <div className="grid gap-6 md:grid-cols-2">
         {jobs.map((job) => (
           <div
