@@ -21,7 +21,7 @@ type JobHit = {
 
 async function getJobs(): Promise<JobHit[]> {
   const res = await fetch(
-    "https://jobsearch.api.jobtechdev.se/search?q=lagerarbetare&l=2:CaRE_1nn_cSU&region=12&limit=100"
+    "https://jobsearch.api.jobtechdev.se/search?q=lagerarbetare&region=12&limit=100"
   );
 
   if (!res.ok) throw new Error("Kunde inte hämta data");
@@ -35,18 +35,23 @@ export default async function Page() {
 
   return (
     <main className="p-8 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Lediga jobb inom lager</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        Lediga jobb inom lager
+      </h1>
+
+      {/* Profilbild i mitten */}
       <div className="flex flex-col items-center mb-10">
         <Image
           src="https://media.licdn.com/dms/image/v2/C4E03AQFqHCkjG1vONQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1584550181168?e=2147483647&v=beta&t=iGDbsY3Ayoe-LiZfXXPaU2dz35ln3CpG3TKR-65VfBs"
           alt="Taleb Haikal"
-          width={160}
-          height={160}
+          width={120}
+          height={120}
           className="rounded-full shadow-lg border-4 border-white"
         />
         <h2 className="mt-4 text-xl font-semibold">Taleb Haikal</h2>
-        <p className="text-gray-600">Grantar AB ägare</p>
+        <p className="text-gray-600">Grundare & App-ägare</p>
       </div>
+
       <div className="grid gap-6 md:grid-cols-2">
         {jobs.map((job) => (
           <div
@@ -63,7 +68,6 @@ export default async function Page() {
                   className="rounded-md"
                 />
               )}
-              <div>{job.logo_url}</div>
               <div>
                 <h2 className="text-xl font-semibold">{job.headline}</h2>
                 <p className="text-gray-600">
@@ -78,7 +82,7 @@ export default async function Page() {
 
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-500">
-                📍 {job.workplace_address?.municipality},{" "}
+                {job.workplace_address?.municipality},{" "}
                 {job.workplace_address?.region}
               </span>
               <a
