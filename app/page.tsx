@@ -60,7 +60,19 @@ export default function Page() {
     e.preventDefault();
     getJobs(query);
   }
+  const quickCategories = [
+    "Lager",
+    "Barnskötare",
+    "Undersköterska",
+    "Säljare",
+    "Städerska",
+    "Restaurang",
+  ];
 
+  function handleQuickSearch(category: string) {
+    setQuery(category);
+    getJobs(category);
+  }
   return (
     <main className="p-8 bg-gray-50 min-h-screen">
       <h1 className="text-3xl text-black font-bold mb-6 text-center">
@@ -80,6 +92,21 @@ export default function Page() {
         <p className="text-gray-600">Grundare & App-ägare</p>
       </div>
 
+      <div className="flex flex-wrap justify-center gap-2 mb-6">
+        {quickCategories.map((category) => (
+          <button
+            key={category}
+            onClick={() => handleQuickSearch(category)}
+            className={`px-4 py-2 text-black rounded-full border text-sm font-medium transition ${
+              query.toLowerCase() === category.toLowerCase()
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-700 border-blue-400 hover:bg-blue-100"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
       {/* Search bar */}
       <form onSubmit={handleSearch} className="flex justify-center mb-8 gap-2">
         <input
