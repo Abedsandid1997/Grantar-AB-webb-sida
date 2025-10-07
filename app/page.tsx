@@ -22,6 +22,9 @@ type JobHit = {
   };
   publication_date: string;
   application_deadline: string | null;
+  working_hours_type: {
+    label: string;
+  };
 };
 
 export default function Page() {
@@ -125,7 +128,8 @@ export default function Page() {
 
                 {/* Datum */}
                 <div className="text-sm text-gray-500 mb-3">
-                  Publicerad:{" "}
+                  jobb type: <strong>{job.working_hours_type.label}</strong>
+                  <br /> Publicerad:{" "}
                   {new Date(job.publication_date).toLocaleDateString("sv-SE")}
                   <br /> Sista ansökningsdag:{" "}
                   {job.application_deadline
