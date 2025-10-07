@@ -63,7 +63,7 @@ export default function Page() {
 
   return (
     <main className="p-8 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 className="text-3xl text-black font-bold mb-6 text-center">
         Lediga jobb i Skåne
       </h1>
 
@@ -119,7 +119,9 @@ export default function Page() {
                     />
                   )}
                   <div>
-                    <h2 className="text-xl font-semibold">{job.headline}</h2>
+                    <h2 className="text-xl text-gray-600 font-semibold">
+                      {job.headline}
+                    </h2>
                     <p className="text-gray-600">
                       {job.employer?.workplace || job.employer?.name}
                     </p>
