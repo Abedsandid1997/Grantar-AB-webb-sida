@@ -25,6 +25,9 @@ type JobHit = {
   working_hours_type: {
     label: string;
   };
+  application_details: {
+    url: string;
+  };
 };
 
 export default function Page() {
@@ -183,6 +186,14 @@ export default function Page() {
                     className="text-blue-600 hover:underline font-medium"
                   >
                     Se annons →
+                  </a>
+                  <a
+                    href={job.application_details.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline font-medium"
+                  >
+                    Ansök nu
                   </a>
                 </div>
               </div>
