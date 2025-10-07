@@ -26,7 +26,7 @@ type JobHit = {
 
 export default function Page() {
   const [jobs, setJobs] = useState<JobHit[]>([]);
-  const [query, setQuery] = useState("lagerarbetare"); // default search
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function getJobs(search: string) {
@@ -84,7 +84,7 @@ export default function Page() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Sök jobb (t.ex. chaufför, butik, lagerarbetare)"
-          className="px-4 py-2 w-80 rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 outline-none"
+          className="px-4 py-2 w-80 text-black rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-500 outline-none"
         />
         <button
           type="submit"
@@ -123,9 +123,6 @@ export default function Page() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 line-clamp-4 mb-4">
-                  {job.description?.text}
-                </p>
                 {/* Datum */}
                 <div className="text-sm text-gray-500 mb-3">
                   Publicerad:{" "}
