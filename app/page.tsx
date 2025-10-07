@@ -119,7 +119,7 @@ export default function Page() {
                     />
                   )}
                   <div>
-                    <h2 className="text-xl text-gray-600 font-semibold">
+                    <h2 className="text-xl text-black font-semibold">
                       {job.headline}
                     </h2>
                     <p className="text-gray-600">
