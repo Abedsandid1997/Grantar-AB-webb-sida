@@ -38,7 +38,7 @@ export default function Page() {
       const res = await fetch(
         `https://jobsearch.api.jobtechdev.se/search?q=${encodeURIComponent(
           search
-        )}&region=12&limit=100`
+        )}&region=12&sort=pubdate-desc&limit=100`
       );
 
       if (!res.ok) throw new Error("Kunde inte hämta data");
